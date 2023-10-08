@@ -2,26 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CSE 134B Homework 1</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subresource Integrity (SRI) Demo</title>
+    <link rel="stylesheet" href="style.css"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC">
 </head>
 
 <body>
     <header>
-        <h1>CSE 134B Homework 1</h1>
+        <h1>Subresource Integrity (SRI) in Browsers</h1>
     </header>
-    <main>
-        <p>
-            lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptatum.
-        </p>
 
+    <nav>
+        <ul>
+            <li><a href="#what-is-sri">What is SRI?</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#usage">Usage</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="what-is-sri">
+            <h2>What is Subresource Integrity (SRI)?</h2>
+            <p>Subresource Integrity (SRI) is a security feature in modern web browsers that helps protect web
+                applications from potential security vulnerabilities.</p>
+            <p>It allows a website to ensure that the resources (such as JavaScript or CSS files) it fetches from
+                external sources have not been tampered with during delivery.</p>
+        </section>
+
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <p>SRI works by generating a cryptographic hash of the expected resource and comparing it to the hash
+                provided in the HTML source. If the hashes match, the resource is considered secure and is loaded by the
+                browser. If they don't match, the resource is blocked to protect against potential attacks.</p>
+        </section>
+
+        <section id="usage">
+            <h2>Usage</h2>
+            <p>To use SRI in your HTML, you can include the <code>integrity</code> attribute within your
+                <code>&lt;script&gt;</code> or <code>&lt;link&gt;</code> tags:
+            </p>
+            <pre>
+                &lt;script src="example.js" integrity="sha384-abc123456789" crossorigin="anonymous"&gt;&lt;/script&gt;
+                &lt;link rel="stylesheet" href="styles.css" integrity="sha256-def456789123" crossorigin="anonymous"&gt;
+            </pre>
+            <p>The <code>integrity</code> attribute contains the hash of the expected resource, and the
+                <code>crossorigin</code> attribute should be set to "anonymous" for SRI to work correctly.
+            </p>
+        </section>
+
+        <section id="hash-input">
+            <h2>Enter SHA-384 Hash</h2>
+            <form id="hash-form">
+                <input type="text" id="hash-input-box" placeholder="Enter SHA-384 Hash" required>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
     </main>
-    <script src="index.js" integrity="sha384-vAh+IozxAL89VIu6y8luFmZOUBOxA1PgX56pzojlBIvyOLOlvYiLvJCMY055kmHi
-" crossorigin="anonymous"></script>
+
+
+
 </body>
 
 </html>

@@ -1,8 +1,0 @@
-name = "sri-endpoint"
-main = "src/index.ts"
-compatibility_date = "2023-10-07"
-usage_model = "bundled"
-env = { }
-
-[triggers]
-crons = [ ]
